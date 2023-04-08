@@ -8,6 +8,7 @@ import { PurchaseTicketFormComponent } from '../components/container/purchase-ti
 import { ShowComponent } from '../components/pure/show/show.component';
 import { TicketComponent } from '../components/pure/ticket/ticket.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ShowsListComponent,
     PurchaseTicketFormComponent,
     ShowComponent,
-    TicketComponent
+    TicketComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
