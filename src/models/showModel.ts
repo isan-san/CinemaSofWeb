@@ -3,5 +3,5 @@ export interface Show {
   title: string;
   isPlayed: boolean;
   description: string;
-  categories: [];
+  categories: string[];
 }
