@@ -7,6 +7,7 @@ import { ShowsListComponent } from '../components/container/shows-list/shows-lis
 import { PurchaseTicketFormComponent } from '../components/container/purchase-ticket-form/purchase-ticket-form.component';
 import { ShowComponent } from '../components/pure/show/show.component';
 import { TicketComponent } from '../components/pure/ticket/ticket.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { TicketComponent } from '../components/pure/ticket/ticket.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
