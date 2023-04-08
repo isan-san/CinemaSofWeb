@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShowsListComponent } from './container/shows-list/shows-list.component';
-import { PurchaseTicketFormComponent } from './container/purchase-ticket-form/purchase-ticket-form.component';
-import { ShowComponent } from './pure/show/show.component';
-import { TicketComponent } from './pure/ticket/ticket.component';
+import { ShowsListComponent } from '../components/container/shows-list/shows-list.component';
+import { PurchaseTicketFormComponent } from '../components/container/purchase-ticket-form/purchase-ticket-form.component';
+import { ShowComponent } from '../components/pure/show/show.component';
+import { TicketComponent } from '../components/pure/ticket/ticket.component';
 
 @NgModule({
   declarations: [
