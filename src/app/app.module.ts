@@ -10,7 +10,7 @@ import { TicketComponent } from './components/pure/ticket/ticket.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { NavBarComponent } from './components/container/nav-bar/nav-bar.component';
-import { BuyTicketPageComponent } from './components/pages/buy-ticket-page-component/buy-ticket-page-component.component';
+import { BuyTicketPageComponent } from './components/pages/buy-ticket-page-component/buy-ticket-page.component';
 
 @NgModule({
   declarations: [

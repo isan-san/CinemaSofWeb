@@ -3,9 +3,9 @@
   <div class="card-body">
     <h5 class="card-title">{{ show.title }}</h5>
     <p class="card-text">{{ show.description }}</p>
-    <ul class="list-unstyled">
+    <ul>
       <li *ngFor="let category of show.categories">{{ category }}</li>
     </ul>
   </div>
-  <button class="btn btn-primary">{{ show.isPlayed ? 'Watch Again' : 'Watch Now' }}</button>
+  <button class="btn" (click)="goToBuyTicket()">Watch Now</button>
 </div>
