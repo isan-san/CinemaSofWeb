@@ -1,0 +1,43 @@
+.nav-bar {
+  position: fixed;
+  height: 3rem;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  background-color: #ededed;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.312);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .filter-form {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 4PX;
+    h3 {
+      margin: 0;
+    }
+    input {
+      padding-left: 0.5rem;
+      padding: 4px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.312);
+      border-radius: 4px;
+    }
+
+  }
+  h1{
+    font-size: 60px;
+    margin-right:32px;
+    text-shadow: -2px -2px 1px rgba(0, 30, 255, 0.5);
+    position: absolute;
+    right: 0;
+    .title-sapn{
+      position: absolute;
+      left: 0;
+      text-shadow: 2px 2px 1px rgba(255, 0, 0, 0.5);
+    }
+  }
+}

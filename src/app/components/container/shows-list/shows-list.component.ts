@@ -22,15 +22,26 @@ export class ShowsListComponent implements OnInit {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['filter']) {
+      this.filterShows(this.filter, this.shows);
     }
   }
   filterShows(filter: string, shows: Show[]) {
-    filter.toLowerCase
-    this.filteredShows = this.shows.filter(show=>{
-      return show.categories.find(categorie=>{
-        categorie.toLowerCase
-        return categorie.includes(filter);
+    filter.toLowerCase;
+    this.filteredShows = [];
+    this.shows
+      .filter((show) => show.title.trim().includes(filter.trim()))
+      .forEach((show) => this.filteredShows.push(show));
+    this.shows
+      .filter((show) => {
+        return show.categories.find((categorie) => {
+          categorie.toLowerCase;
+          return categorie.trim().includes(filter.trim());
+        });
       })
-    })
+      .forEach((show) => {
+        if (!this.filteredShows.includes(show)) {
+          this.filteredShows.push(show);
+        }
+      });
   }
 }
