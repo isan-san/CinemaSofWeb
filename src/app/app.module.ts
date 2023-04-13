@@ -9,6 +9,7 @@ import { ShowComponent } from '../components/pure/show/show.component';
 import { TicketComponent } from '../components/pure/ticket/ticket.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from '../components/pages/home-page/home-page.component';
+import { NavBarComponent } from './container/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomePageComponent } from '../components/pages/home-page/home-page.compo
     PurchaseTicketFormComponent,
     ShowComponent,
     TicketComponent,
-    HomePageComponent
+    HomePageComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
