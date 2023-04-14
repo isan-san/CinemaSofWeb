@@ -113,3 +113,14 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0062cc;
 }
+
+.form-div{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  background-color: #0077ff35;
+  box-shadow: 0px 0px 20px #0077ff35 ;
+  padding: 32px;
+}
