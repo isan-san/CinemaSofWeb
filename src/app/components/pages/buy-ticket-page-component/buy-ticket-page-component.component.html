@@ -1,1 +1,8 @@
-<app-buy-ticket-form (formSubmitted)="$event"></app-buy-ticket-form>
+<div class="form-div" *ngIf="!ticket">
+  <h2>Buy a ticket for{{show?.title}}</h2>
+  <app-buy-ticket-form (formSubmitted)="buyTicket($event)"></app-buy-ticket-form>
+</div>
+<div class="form-div" *ngIf="ticket">
+  <h2>Thank you for buying</h2>
+  <button (click)="goToShows()">Go Back</button>
+</div>

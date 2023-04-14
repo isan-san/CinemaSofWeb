@@ -36,5 +36,9 @@
     <label for="bitcoinAddress">Bitcoin Address</label>
     <input type="text" id="bitcoinAddress" name="bitcoinAddress" [(ngModel)]="bitcoinAddress" required>
   </div>
-  <button type="submit" class="form-button">Buy Ticket</button>
+  <div style="display: flex; flex-direction: column;">
+    <button type="submit" class="form-button">Buy Ticket</button>
+    <button (click)="goToShows()" class="form-button">Go Back</button>
+  </div>
+
 </form>
