@@ -5,6 +5,8 @@ import { TicketService } from 'src/services/ticket.service.service';
 import { ShowService } from 'src/services/show.service.service';
 import { Show } from 'src/models/showModel';
 import { Ticket } from 'src/models/ticketModel';
+import html2canvas from 'html2canvas';
+
 // const formData = require('form-data');
 // import * as Mailgun from 'mailgun-js';
 
@@ -23,6 +25,15 @@ export class BuyTicketPageComponent {
   showId: string = '';
   show: Show | undefined = undefined;
   ticket: Ticket | undefined = undefined;
+  ticketDate: Date | undefined = undefined;
+  formData: FormValues = {
+    name: '',
+    email: '',
+    paymentMethod: '',
+    cardNumber: '',
+    paypalEmail: '',
+    bitcoinAddress: '',
+  };
   // mailgun: Mailgun.Mailgun | undefined = undefined;
 
   ngOnInit() {
@@ -37,22 +48,37 @@ export class BuyTicketPageComponent {
     // });
   }
 
-  buyTicket(data: FormValues) {
-    if(confirm("Are sou shure you want to by a ticket for "+this.show?.title)){
-    if ((this.show!).availableTickets > 0) {
-      this.ticketService
-        .saveTicket({
-          show: this.show,
-        } as Ticket)
-        .subscribe((ticket) => {
-          this.ticket = ticket;
-          this.show!.availableTickets--;
-          this.showService.saveShow(this.show!).subscribe();
-        });
-    }else{
-      alert("There is no avaalable tickets, come back latter.")
-    }
+  downloadTicket() {
+    const ticketEl = document.getElementById('ticket');
+    html2canvas(ticketEl!).then((canvas) => {
+      const link = document.createElement('a');
+      link.download = 'ticket.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
   }
+
+  buyTicket(data: FormValues) {
+    this.formData = data;
+    if (
+      confirm('Are sou shure you want to by a ticket for ' + this.show?.title)
+    ) {
+      this.ticketDate = new Date();
+      if (this.show!.availableTickets > 0) {
+        this.ticketService
+          .saveTicket({
+            creationTime: new Date,
+            show: this.show,
+          } as Ticket)
+          .subscribe((ticket) => {
+            this.ticket = ticket;
+            this.show!.availableTickets--;
+            this.showService.saveShow(this.show!).subscribe();
+          });
+      } else {
+        alert('There is no avaalable tickets, come back latter.');
+      }
+    }
     // this.mailgun?.post('sandbox-123.mailgun.org', {
     //   from: "Excited User <mailgun@sandbox-123.mailgun.org>",
     //   to: ["isan.9.9f@gmail.com"],
@@ -63,7 +89,7 @@ export class BuyTicketPageComponent {
     // .then(msg => console.log(msg)) // logs response data
     // .catch(err => console.log(err));}
   }
-  goToShows(){
+  goToShows() {
     this.router.navigate(['/home']);
   }
 }

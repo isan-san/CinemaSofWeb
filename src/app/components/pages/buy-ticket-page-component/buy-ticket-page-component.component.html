@@ -1,8 +1,29 @@
 <div class="form-div" *ngIf="!ticket">
-  <h2>Buy a ticket for{{show?.title}}</h2>
-  <app-buy-ticket-form (formSubmitted)="buyTicket($event)"></app-buy-ticket-form>
+  <h2>Buy a ticket for{{ show?.title }}</h2>
+  <app-buy-ticket-form
+    (formSubmitted)="buyTicket($event)"
+  ></app-buy-ticket-form>
 </div>
-<div class="form-div" *ngIf="ticket">
-  <h2>Thank you for buying</h2>
-  <button (click)="goToShows()">Go Back</button>
+<div *ngIf="ticket">
+  <div class="form-div" >
+    <h2>Thank you for buying</h2>
+    <div id="ticket">
+      <h2>Ticket Details</h2>
+      <p><strong>ID:</strong> {{ ticket.id }}</p>
+      <p><strong>To be used by:</strong> {{ formData.name }}</p>
+      <p><strong>Creation Time:</strong> {{ ticketDate | date : "medium" }}</p>
+      <h3>Show Details</h3>
+      <p><strong>Title:</strong> {{ ticket.show.title }}</p>
+      <p><strong>Description:</strong> {{ ticket.show.description }}</p>
+      <p>
+        <strong>Available Tickets:</strong> {{ ticket.show.availableTickets }}
+      </p>
+    </div>
+  </div>
+  <div class="options">
+    <button (click)="goToShows()" class="form-button">Go Back</button>
+    <button (click)="downloadTicket()" class="form-button">
+      Download Ticket
+    </button>
+  </div>
 </div>
