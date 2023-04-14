@@ -7,5 +7,6 @@
       <li *ngFor="let category of show.categories">{{ category }}</li>
     </ul>
   </div>
-  <button class="btn" (click)="goToBuyTicket()">Watch Now</button>
+  <button class="btn" (click)="goToBuyTicket()" *ngIf="show.availableTickets>0">Watch Now ({{show.availableTickets}} tickets)</button>
+  <button class="btn" *ngIf="show.availableTickets<1">No tickets are available</button>
 </div>
