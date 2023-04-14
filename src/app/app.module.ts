@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { NavBarComponent } from './components/container/nav-bar/nav-bar.component';
 import { BuyTicketPageComponent } from './components/pages/buy-ticket-page-component/buy-ticket-page.component';
+import { BuyTicketFormComponent } from './components/pure/buy-ticket-form/buy-ticket-form.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { BuyTicketPageComponent } from './components/pages/buy-ticket-page-compo
     TicketComponent,
     HomePageComponent,
     NavBarComponent,
-    BuyTicketPageComponent
+    BuyTicketPageComponent,
+    BuyTicketFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

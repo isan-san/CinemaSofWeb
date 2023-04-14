@@ -16,6 +16,7 @@ export class ShowComponent {
     title: 'string',
     isPlayed: true,
     description: 'string',
+    availableTickets:0,
     categories: [''],
   };
 
